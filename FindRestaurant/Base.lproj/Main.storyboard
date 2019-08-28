@@ -13,8 +13,8 @@
         <!--Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="FindRestaurant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LocationView" customModule="FindRestaurant" customModuleProvider="target">
+                <viewController storyboardIdentifier="LocationViewController" id="BYZ-38-t0r" customClass="LocationViewController" customModule="FindRestaurant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="locationView" id="8bC-Xf-vdC" customClass="LocationView" customModule="FindRestaurant" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -103,6 +103,9 @@
                             <outlet property="denyButton" destination="ZXX-gH-lZ8" id="Kfj-d4-AJ6"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="locationView" destination="8bC-Xf-vdC" id="b5C-up-acY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,6 +377,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="VQb-f9-v46"/>
                     <size key="freeformSize" width="414" height="1024"/>
+                    <connections>
+                        <outlet property="detailsFoodView" destination="8z0-rG-tTC" id="kKv-Ff-ArF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBQ-Ro-Gly" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

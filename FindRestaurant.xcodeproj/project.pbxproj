@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D90EF11D22EA6BF000B297D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EF11C22EA6BF000B297D3 /* AppDelegate.swift */; };
-		D90EF11F22EA6BF000B297D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EF11E22EA6BF000B297D3 /* ViewController.swift */; };
 		D90EF12222EA6BF000B297D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90EF12022EA6BF000B297D3 /* Main.storyboard */; };
 		D90EF12422EA6BF400B297D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D90EF12322EA6BF400B297D3 /* Assets.xcassets */; };
 		D90EF12722EA6BF400B297D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90EF12522EA6BF400B297D3 /* LaunchScreen.storyboard */; };
@@ -19,12 +18,12 @@
 		D968739623160F4300A65D0B /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739523160F4300A65D0B /* RestaurantCell.swift */; };
 		D968739A23160FE500A65D0B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739923160FE500A65D0B /* LocationView.swift */; };
 		D968739C2316106200A65D0B /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739B2316106200A65D0B /* LocationViewController.swift */; };
+		D968739F2316147900A65D0B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739E2316147900A65D0B /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D90EF11922EA6BF000B297D3 /* FindRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90EF11C22EA6BF000B297D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D90EF11E22EA6BF000B297D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D90EF12122EA6BF000B297D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D90EF12322EA6BF400B297D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D90EF12622EA6BF400B297D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		D968739523160F4300A65D0B /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		D968739923160FE500A65D0B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		D968739B2316106200A65D0B /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		D968739E2316147900A65D0B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +68,9 @@
 		D90EF11B22EA6BF000B297D3 /* FindRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				D968739D2316146600A65D0B /* Data */,
 				D968738823160B4600A65D0B /* Presentation */,
 				D90EF11C22EA6BF000B297D3 /* AppDelegate.swift */,
-				D90EF11E22EA6BF000B297D3 /* ViewController.swift */,
 				D90EF12022EA6BF000B297D3 /* Main.storyboard */,
 				D90EF12322EA6BF400B297D3 /* Assets.xcassets */,
 				D90EF12522EA6BF400B297D3 /* LaunchScreen.storyboard */,
@@ -139,6 +139,14 @@
 				D968739923160FE500A65D0B /* LocationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D968739D2316146600A65D0B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D968739E2316147900A65D0B /* LocationService.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +222,10 @@
 			files = (
 				D968738A23160B5E00A65D0B /* BaseView.swift in Sources */,
 				D968739A23160FE500A65D0B /* LocationView.swift in Sources */,
+				D968739F2316147900A65D0B /* LocationService.swift in Sources */,
 				D968738E23160C3500A65D0B /* DetailsFoodView.swift in Sources */,
 				D968739023160E6B00A65D0B /* DetailsFoodViewController.swift in Sources */,
 				D968739323160F1700A65D0B /* RestaurantTableTableViewController.swift in Sources */,
-				D90EF11F22EA6BF000B297D3 /* ViewController.swift in Sources */,
 				D968739C2316106200A65D0B /* LocationViewController.swift in Sources */,
 				D968739623160F4300A65D0B /* RestaurantCell.swift in Sources */,
 				D90EF11D22EA6BF000B297D3 /* AppDelegate.swift in Sources */,
