@@ -22,6 +22,7 @@
 		D968739C2316106200A65D0B /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739B2316106200A65D0B /* LocationViewController.swift */; };
 		D968739F2316147900A65D0B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739E2316147900A65D0B /* LocationService.swift */; };
 		D96873A12316231B00A65D0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D96873A02316231B00A65D0B /* Podfile */; };
+		D9A62CA3231FDA3800566771 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D9A62CA2231FDA3800566771 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D968739B2316106200A65D0B /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D968739E2316147900A65D0B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D96873A02316231B00A65D0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D9A62CA2231FDA3800566771 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F543F635267E90A5C7F5AD1D /* Pods-FindRestaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindRestaurant.release.xcconfig"; path = "Target Support Files/Pods-FindRestaurant/Pods-FindRestaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 		D90EF11022EA6BF000B297D3 = {
 			isa = PBXGroup;
 			children = (
+				D9A62CA2231FDA3800566771 /* .gitignore */,
 				D96873A02316231B00A65D0B /* Podfile */,
 				D90EF11B22EA6BF000B297D3 /* FindRestaurant */,
 				D90EF11A22EA6BF000B297D3 /* Products */,
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A62CA3231FDA3800566771 /* .gitignore in Resources */,
 				D90EF12722EA6BF400B297D3 /* LaunchScreen.storyboard in Resources */,
 				D90EF12422EA6BF400B297D3 /* Assets.xcassets in Resources */,
 				D96873A12316231B00A65D0B /* Podfile in Resources */,
