@@ -8,12 +8,13 @@
 
 import Foundation
 import Moya
+import Keys
 
 enum YelpApi {
     
     enum BusinessProvider: TargetType {
         
-        case search(lat: Double, long: Double)
+        case search(lat: Double, long: Double, limit: Int)
         
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
@@ -36,20 +37,20 @@ enum YelpApi {
         
         var task: Task {
             switch self {
-            case let .search(lat, long):
+            case let .search(lat, long, limit):
                 return .requestParameters(parameters: [
                     "latitude": lat,
                     "longitude": long,
-                    "limit": 1
+                    "limit": limit
                 ], encoding: URLEncoding.queryString)
             }
         }
         
         var headers: [String : String]? {
-            guard let yelpApiKey = ProcessInfo.processInfo.environment["YELP_API_KEY"] else {
-                fatalError("You must set Yelp Api Key on your environment\ntake a look on: https://www.yelp.com/developers")
-            }
-            return ["Authorization": "Bearer \(yelpApiKey)"]
+            // MARK: You must set Yelp Api Key on your environment take a look on: https://www.yelp.com/developers
+            // and then set your key with CocoaPods Key: https://www.lordcodes.com/posts/managing-secrets-within-an-ios-app
+            let keys = FindRestaurantKeys()
+            return ["Authorization": "Bearer \(keys.yelpApiKey)"]
         }
         
     }

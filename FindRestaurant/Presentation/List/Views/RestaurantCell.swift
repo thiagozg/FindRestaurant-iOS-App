@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class RestaurantCell: UITableViewCell {
     
@@ -24,6 +25,12 @@ class RestaurantCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(with restaurantsVO: RestaurantsVO) {
+        restaurantImageView.af_setImage(withURL: restaurantsVO.imageUrl)
+        restaurantNameLabel.text = restaurantsVO.name
+        locationLabel.text = restaurantsVO.formattedDistance
     }
 
 }
