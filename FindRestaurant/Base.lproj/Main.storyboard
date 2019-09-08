@@ -133,7 +133,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bOn-GK-nys">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="194"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="100" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="4eI-hp-puX">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="100" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="4eI-hp-puX">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="153"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="153" id="tTA-Pb-C43"/>
@@ -192,7 +192,6 @@
                                     <outlet property="makerImageView" destination="GJQ-sW-Gca" id="jex-Xl-wIr"/>
                                     <outlet property="restaurantImageView" destination="4eI-hp-puX" id="LUM-tc-wlI"/>
                                     <outlet property="restaurantNameLabel" destination="Uwg-y5-JOj" id="DMS-TI-UPA"/>
-                                    <segue destination="6Oy-K5-Ukb" kind="show" id="n90-yA-rhV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,24 +209,24 @@
         <!--Title-->
         <scene sceneID="Pvk-CW-98Z">
             <objects>
-                <viewController id="6Oy-K5-Ukb" customClass="DetailsFoodViewController" customModule="FindRestaurant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="6Oy-K5-Ukb" customClass="DetailsFoodViewController" customModule="FindRestaurant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8z0-rG-tTC" customClass="DetailsFoodView" customModule="FindRestaurant" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-Ml-sRG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="902"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="946"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lNb-Hs-J9M">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="960"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-3U-sHQ">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-3U-sHQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="9mz-dp-q9z"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gfW-1t-Bqo">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gfW-1t-Bqo">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -352,7 +351,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="hSa-8T-o0O">
-                                <rect key="frame" x="187.5" y="301" width="39" height="37"/>
+                                <rect key="frame" x="187.5" y="257" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -398,8 +397,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
-                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>

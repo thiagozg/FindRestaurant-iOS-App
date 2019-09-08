@@ -42,12 +42,14 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") else { return }
+        navigationController?.pushViewController(detailsViewController, animated: true)
         let restaurant = restaurantsVO[indexPath.row]
-        delegate?.didTapCell(restaurant)
+        delegate?.didTapCell(detailsViewController, vo: restaurant)
     }
 
 }
 
 protocol RestaurantListActions: class {
-    func didTapCell(_ restaurant: RestaurantVO)
+    func didTapCell(_ viewController: UIViewController, vo restaurant: RestaurantVO)
 }

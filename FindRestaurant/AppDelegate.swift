@@ -76,14 +76,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success(let response):
                 guard let strongSelf = self else { return }
                 
-                let root = try? strongSelf.jsonDecoder.decode(RestaurantsResponse.self, from: response.data)
-                let restaurantsVO = root?.businesses
+                let restaurantsResponse = try? strongSelf.jsonDecoder.decode(RestaurantsResponse.self, from: response.data)
+                let restaurantsVO = restaurantsResponse?.businesses
                     .compactMap(RestaurantVO.init)
                     .sorted(by: { $0.distance < $1.distance })
                 
                 if let nav = strongSelf.window.rootViewController as? UINavigationController,
                     let restaurantListViewController = nav.topViewController as? RestaurantTableViewController {
                     restaurantListViewController.restaurantsVO = restaurantsVO ?? []
+                } else if let nav = strongSelf.storyboard.instantiateViewController(withIdentifier: "RestaurantNavigationController")
+                    as? UINavigationController {
+                    strongSelf.navigationController = nav
+                    strongSelf.window.rootViewController?.present(nav, animated: true) {
+                        let restaurantTableViewController = (nav.topViewController as? RestaurantTableViewController)
+                        restaurantTableViewController?.delegate = self
+                        restaurantTableViewController?.restaurantsVO = restaurantsVO ?? []
+                    }
                 }
                 
             case .failure(let error):
@@ -92,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func loadDetails(withId id: String) {
+    private func loadDetails(for viewController: UIViewController, withId id: String) {
         // TODO: move to RestaurantTableViewController
         service.request(.details(id: id)) { [weak self] (result) in
             switch result {
@@ -116,9 +124,9 @@ extension AppDelegate: LocationActions, RestaurantListActions {
     func didTapAllow() {
         locationService.requestLocationAuthorization()
     }
-
-    func didTapCell(_ restaurant: RestaurantVO) {
-        loadDetails(withId: restaurant.id)
+    
+    func didTapCell(_ viewController: UIViewController, vo restaurant: RestaurantVO) {
+        loadDetails(for: viewController, withId: restaurant.id)
     }
 }
 
