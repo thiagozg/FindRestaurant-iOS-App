@@ -192,7 +192,7 @@
                                     <outlet property="makerImageView" destination="GJQ-sW-Gca" id="jex-Xl-wIr"/>
                                     <outlet property="restaurantImageView" destination="4eI-hp-puX" id="LUM-tc-wlI"/>
                                     <outlet property="restaurantNameLabel" destination="Uwg-y5-JOj" id="DMS-TI-UPA"/>
-                                    <segue destination="6Oy-K5-Ukb" kind="show" trigger="accessoryAction" id="Krf-20-QzV"/>
+                                    <segue destination="6Oy-K5-Ukb" kind="show" id="n90-yA-rhV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -396,6 +396,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="odR-67-saE">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
                             <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

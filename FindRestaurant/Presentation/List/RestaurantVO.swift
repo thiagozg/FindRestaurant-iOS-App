@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RestaurantsVO {
+struct RestaurantVO {
     let name: String
     let imageUrl: URL
     let distance: Double
@@ -23,12 +23,12 @@ struct RestaurantsVO {
     }
     
     var formattedDistance: String? {
-        return RestaurantsVO.numberFormatter.string(from: distance as NSNumber)
+        return RestaurantVO.numberFormatter.string(from: distance as NSNumber)
     }
 }
 
-extension RestaurantsVO {
-    init(business: RestaurantsResponse) {
+extension RestaurantVO {
+    init(business: RestaurantDTO) {
         self.name = business.name
         self.id = business.id
         self.imageUrl = business.imageUrl

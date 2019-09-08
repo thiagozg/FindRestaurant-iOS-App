@@ -10,7 +10,7 @@ import UIKit
 
 class LocationViewController: UIViewController {
     
-    @IBOutlet weak var locationView: LocationView!
+    @IBOutlet weak var locationView: LocationView?
     weak var delegate: LocationActions?
 
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class LocationViewController: UIViewController {
     }
     
     func initLocationDelegate() {
-        locationView.didTapAllow = {
+        locationView?.didTapAllow = {
             self.delegate?.didTapAllow()
         }
     }

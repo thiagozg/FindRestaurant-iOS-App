@@ -10,12 +10,25 @@ import UIKit
 
 class DetailsFoodViewController: UIViewController {
     
-    @IBOutlet weak var detailsFoodView: DetailsFoodView!
+    @IBOutlet weak var detailsFoodView: DetailsFoodView?
+    
+    var detailsVO: DetailsVO? {
+        didSet {
+            initViews()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func initViews() {
+        if let detailsVO = detailsVO{
+            detailsFoodView?.priceLabel?.text = detailsVO.price
+            detailsFoodView?.hoursLabel?.text = detailsVO.isOpen
+            detailsFoodView?.locationLabel?.text = detailsVO.phoneNumber
+            detailsFoodView?.ratingsLabel?.text = detailsVO.rating
+        }
     }
 
 }

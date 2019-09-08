@@ -10,15 +10,19 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
-    var restaurantsVO = [RestaurantsVO]() {
+    var restaurantsVO = [RestaurantVO]() {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    weak var delegate: RestaurantListActions?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantsVO.count
@@ -34,5 +38,16 @@ class RestaurantTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let restaurant = restaurantsVO[indexPath.row]
+        delegate?.didTapCell(restaurant)
+    }
 
+}
+
+protocol RestaurantListActions: class {
+    func didTapCell(_ restaurant: RestaurantVO)
 }

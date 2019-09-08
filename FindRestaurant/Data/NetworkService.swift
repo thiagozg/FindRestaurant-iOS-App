@@ -15,6 +15,7 @@ enum YelpApi {
     enum BusinessProvider: TargetType {
         
         case search(lat: Double, long: Double, limit: Int)
+        case details(id: String)
         
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
@@ -24,6 +25,8 @@ enum YelpApi {
             switch self {
             case .search:
                 return "/search"
+            case let .details(id):
+                return "/\(id)"
             }
         }
         
@@ -43,6 +46,9 @@ enum YelpApi {
                     "longitude": long,
                     "limit": limit
                 ], encoding: URLEncoding.queryString)
+                
+            case .details:
+                return .requestPlain
             }
         }
         

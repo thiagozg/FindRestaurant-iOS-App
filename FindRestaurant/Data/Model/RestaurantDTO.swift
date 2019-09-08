@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Root: Codable {
-    let businesses: [RestaurantsResponse]
+struct RestaurantsResponse: Codable {
+    let businesses: [RestaurantDTO]
 }
 
-struct RestaurantsResponse: Codable {
+struct RestaurantDTO: Codable {
     let id: String
     let name: String
     let imageUrl: URL

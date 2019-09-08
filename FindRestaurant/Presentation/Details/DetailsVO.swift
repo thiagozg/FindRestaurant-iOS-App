@@ -20,13 +20,13 @@ struct DetailsVO {
 }
 
 extension DetailsVO {
-    init(details: DetailsResponse) {
-        self.name = details.name
-        self.price = details.price
-        self.isOpen = details.isClosed ? "Closed" : "Open"
-        self.phoneNumber = details.phone
-        self.rating = "\(details.rating) / 5.0"
-        self.imageUrls = details.photos
-        self.coordinate = details.coordinates
+    init(detailsResponse: DetailsResponse) {
+        self.name = detailsResponse.name
+        self.price = detailsResponse.price
+        self.isOpen = detailsResponse.isClosed ? "Closed" : "Open"
+        self.phoneNumber = detailsResponse.phone
+        self.rating = "\(detailsResponse.rating) / 5.0"
+        self.imageUrls = detailsResponse.photos
+        self.coordinate = detailsResponse.coordinates
     }
 }
