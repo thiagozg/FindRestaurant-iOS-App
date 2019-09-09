@@ -16,6 +16,8 @@
 		D914B2D223220238002297D9 /* RestaurantDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914B2D123220238002297D9 /* RestaurantDTO.swift */; };
 		D914B2D5232202B1002297D9 /* RestaurantVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914B2D4232202B1002297D9 /* RestaurantVO.swift */; };
 		D914B2D723220307002297D9 /* DetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914B2D623220307002297D9 /* DetailsVO.swift */; };
+		D927CD002325FE5F008D2B88 /* LocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927CCFF2325FE5E008D2B88 /* LocationPresenter.swift */; };
+		D927CD022326007B008D2B88 /* YelpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927CD012326007B008D2B88 /* YelpApi.swift */; };
 		D9439363231CB541008A7046 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9439362231CB541008A7046 /* NetworkService.swift */; };
 		D968738A23160B5E00A65D0B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968738923160B5E00A65D0B /* BaseView.swift */; };
 		D968738E23160C3500A65D0B /* DetailsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968738D23160C3500A65D0B /* DetailsFoodView.swift */; };
@@ -44,6 +46,8 @@
 		D914B2D123220238002297D9 /* RestaurantDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDTO.swift; sourceTree = "<group>"; };
 		D914B2D4232202B1002297D9 /* RestaurantVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantVO.swift; sourceTree = "<group>"; };
 		D914B2D623220307002297D9 /* DetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVO.swift; sourceTree = "<group>"; };
+		D927CCFF2325FE5E008D2B88 /* LocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresenter.swift; sourceTree = "<group>"; };
+		D927CD012326007B008D2B88 /* YelpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpApi.swift; sourceTree = "<group>"; };
 		D9439362231CB541008A7046 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D968738923160B5E00A65D0B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D968738D23160C3500A65D0B /* DetailsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFoodView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 			children = (
 				D968739823160FD200A65D0B /* Views */,
 				D968739B2316106200A65D0B /* LocationViewController.swift */,
+				D927CCFF2325FE5E008D2B88 /* LocationPresenter.swift */,
 			);
 			path = LocationPermission;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				D914B2D32322026C002297D9 /* Model */,
 				D968739E2316147900A65D0B /* LocationService.swift */,
 				D9439362231CB541008A7046 /* NetworkService.swift */,
+				D927CD012326007B008D2B88 /* YelpApi.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D927CD002325FE5F008D2B88 /* LocationPresenter.swift in Sources */,
 				D914B2D223220238002297D9 /* RestaurantDTO.swift in Sources */,
 				D9439363231CB541008A7046 /* NetworkService.swift in Sources */,
 				D90FFB4323259424000D02D9 /* DetailsCollectionViewCell.swift in Sources */,
@@ -346,6 +353,7 @@
 				D968739023160E6B00A65D0B /* DetailsFoodViewController.swift in Sources */,
 				D968739323160F1700A65D0B /* RestaurantTableViewController.swift in Sources */,
 				D999C57F232443C2001237FE /* DetailsResponse.swift in Sources */,
+				D927CD022326007B008D2B88 /* YelpApi.swift in Sources */,
 				D968739C2316106200A65D0B /* LocationViewController.swift in Sources */,
 				D914B2D723220307002297D9 /* DetailsVO.swift in Sources */,
 				D968739623160F4300A65D0B /* RestaurantCell.swift in Sources */,
@@ -497,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53B2X8AM38;
 				INFOPLIST_FILE = FindRestaurant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53B2X8AM38;
 				INFOPLIST_FILE = FindRestaurant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
