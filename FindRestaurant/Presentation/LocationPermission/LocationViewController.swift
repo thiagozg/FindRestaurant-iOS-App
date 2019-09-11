@@ -7,37 +7,38 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LocationViewController: UIViewController, LocationNetworkAction {
+class LocationViewController: UIViewController {
     
     @IBOutlet weak var locationView: LocationView?
     private var appDelegate: AppDelegate?
     private var presenter: LocationPresenter?
+    // TODO: move this logic of LocationService to Presenter
     private var locationService: LocationService?
+    private var oldLocationStatus: CLAuthorizationStatus = .notDetermined
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         if appDelegate != nil {
-            presenter = LocationPresenter(appDelegate!.networkService, locationNetworkAction: self)
+            presenter = LocationPresenter(appDelegate!.networkService, ui: self)
         }
         initLocationService()
     }
     
     private func initLocationService() {
-        locationService = appDelegate?.locationService
+        self.locationService = appDelegate?.locationService
         locationView?.didTapAllow = {
             self.locationService?.requestLocationAuthorization()
         }
         
-        let locationStatus = appDelegate?.locationService.status
-        if locationStatus == .authorizedAlways || locationStatus == .authorizedWhenInUse {
-            let nav = appDelegate?.storyboard.instantiateViewController(withIdentifier: "RestaurantNavigationController")
-                as? UINavigationController
-            appDelegate?.navigationController = nav
-            appDelegate?.window.rootViewController = nav
-            locationService?.getLocation()
-            (nav?.topViewController as? RestaurantTableViewController)?.delegate = appDelegate
+        if let locationStatus = appDelegate?.locationService.status {
+            oldLocationStatus = locationStatus
+            if locationStatus == .authorizedAlways || locationStatus == .authorizedWhenInUse {
+                appDelegate?.updateNavigationController(withIdentifier: NavigationConstants.restaurantNavigationController)
+                locationService?.getLocation()
+            }
         }
         
         locationService?.newLocation = { [weak self] result in
@@ -45,25 +46,26 @@ class LocationViewController: UIViewController, LocationNetworkAction {
             case .success(let location):
                 self?.presenter?.loadRestaurants(with: location.coordinate)
             case .failure(let error):
-                assertionFailure("Error getting the users location \(error)")
+                // TODO: should show error state
+                assertionFailure("Error getting the user location \(error)")
             }
         }
     }
     
+    private func hasLocationAuthorized(_ locationStatus: CLAuthorizationStatus) -> Bool {
+        return locationStatus == .authorizedAlways || locationStatus == .authorizedWhenInUse
+    }
+}
+
+extension LocationViewController: ILocationViewController {
     func loadRestaurantsSuccessfully(vo restaurantsVO: [RestaurantVO]) {
-        if let nav = appDelegate?.window.rootViewController as? UINavigationController,
-            let restaurantListViewController = nav.topViewController as? RestaurantTableViewController {
-            restaurantListViewController.restaurantsVO = restaurantsVO
-        } else if let nav = appDelegate?.storyboard.instantiateViewController(withIdentifier: "RestaurantNavigationController")
-            as? UINavigationController {
-            appDelegate?.navigationController = nav
-            appDelegate?.window.rootViewController?.present(nav, animated: true) {
-                let restaurantTableViewController = (nav.topViewController as? RestaurantTableViewController)
-                // TODO: remove this after refact RestaurantTableViewController
-                restaurantTableViewController?.delegate = self.appDelegate
+        if !hasLocationAuthorized(oldLocationStatus) {
+            appDelegate?.changeToRestaurantNavigationController { restaurantTableViewController in
                 restaurantTableViewController?.restaurantsVO = restaurantsVO
             }
+        } else if let restaurantTableViewController = appDelegate?.navigationController?.topViewController
+            as? RestaurantTableViewController {
+            restaurantTableViewController.restaurantsVO = restaurantsVO
         }
     }
-
 }

@@ -12,12 +12,12 @@ import CoreLocation
 
 class LocationPresenter {
     
-    let networkService: NetworkService
-    let delegate: LocationNetworkAction
+    private let networkService: NetworkService
+    private weak var viewController: ILocationViewController?
     
-    init(_ networkService: NetworkService, locationNetworkAction delegate: LocationNetworkAction) {
+    init(_ networkService: NetworkService, ui viewController: ILocationViewController) {
         self.networkService = networkService
-        self.delegate = delegate
+        self.viewController = viewController
     }
     
     func loadRestaurants(with coordinate: CLLocationCoordinate2D) {
@@ -36,7 +36,7 @@ class LocationPresenter {
                     let restaurantsVO = restaurantsResponse?.businesses
                         .compactMap(RestaurantVO.init)
                         .sorted(by: { $0.distance < $1.distance })
-                   strongSelf.delegate.loadRestaurantsSuccessfully(vo: restaurantsVO ?? [])
+                    strongSelf.viewController?.loadRestaurantsSuccessfully(vo: restaurantsVO ?? [])
 
                     
                 case .failure(let error):
@@ -44,8 +44,4 @@ class LocationPresenter {
                 }
         }
     }
-}
-
-protocol LocationNetworkAction: class {
-    func loadRestaurantsSuccessfully(vo restaurantsVO: [RestaurantVO])
 }

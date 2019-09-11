@@ -28,6 +28,7 @@
 		D968739C2316106200A65D0B /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739B2316106200A65D0B /* LocationViewController.swift */; };
 		D968739F2316147900A65D0B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968739E2316147900A65D0B /* LocationService.swift */; };
 		D96873A12316231B00A65D0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D96873A02316231B00A65D0B /* Podfile */; };
+		D970645F23287F6600BDBEB8 /* ILocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970645E23287F6600BDBEB8 /* ILocationViewController.swift */; };
 		D999C57F232443C2001237FE /* DetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999C57E232443C2001237FE /* DetailsResponse.swift */; };
 		D9A62CA3231FDA3800566771 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D9A62CA2231FDA3800566771 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		D968739B2316106200A65D0B /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D968739E2316147900A65D0B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D96873A02316231B00A65D0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D970645E23287F6600BDBEB8 /* ILocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILocationViewController.swift; sourceTree = "<group>"; };
 		D999C57E232443C2001237FE /* DetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsResponse.swift; sourceTree = "<group>"; };
 		D9A62CA2231FDA3800566771 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 				D968739823160FD200A65D0B /* Views */,
 				D968739B2316106200A65D0B /* LocationViewController.swift */,
 				D927CCFF2325FE5E008D2B88 /* LocationPresenter.swift */,
+				D970645E23287F6600BDBEB8 /* ILocationViewController.swift */,
 			);
 			path = LocationPermission;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				D968739A23160FE500A65D0B /* LocationView.swift in Sources */,
 				D968739F2316147900A65D0B /* LocationService.swift in Sources */,
 				D968738E23160C3500A65D0B /* DetailsFoodView.swift in Sources */,
+				D970645F23287F6600BDBEB8 /* ILocationViewController.swift in Sources */,
 				D968739023160E6B00A65D0B /* DetailsFoodViewController.swift in Sources */,
 				D968739323160F1700A65D0B /* RestaurantTableViewController.swift in Sources */,
 				D999C57F232443C2001237FE /* DetailsResponse.swift in Sources */,

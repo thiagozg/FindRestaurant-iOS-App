@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
         initLocationClosures()
         initStoryboard()
         window.makeKeyAndVisible()
@@ -37,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func initStoryboard() {
         let locationViewController = storyboard.instantiateViewController(
-            withIdentifier: "LocationViewController") as? LocationViewController
+            withIdentifier: NavigationConstants.locationViewController) as? LocationViewController
         window.rootViewController = locationViewController
     }
     
@@ -59,6 +58,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func updateNavigationController(withIdentifier navigationIdentifier: String, _ changeRootViewController: Bool = true) {
+        navigationController = storyboard.instantiateViewController(
+            withIdentifier: navigationIdentifier) as? UINavigationController
+        if changeRootViewController {
+            window.rootViewController = navigationController
+        }
+        // TODO: remove this after refact RestaurantTableViewController
+        (navigationController?.topViewController as? RestaurantTableViewController)?.delegate = self
+    }
+    
+    func changeToRestaurantNavigationController(closure: @escaping (RestaurantTableViewController?) -> Void) {
+        updateNavigationController(withIdentifier: NavigationConstants.restaurantNavigationController, false)
+        if navigationController != nil {
+            window.rootViewController?.present(navigationController!, animated: true) {
+                let restaurantTableViewController = (self.navigationController!.topViewController as? RestaurantTableViewController)
+                closure(restaurantTableViewController)
+            }
+        }
+    }
 
 }
 
@@ -68,3 +87,7 @@ extension AppDelegate: RestaurantListActions {
     }
 }
 
+struct NavigationConstants {
+    static let locationViewController = "LocationViewController"
+    static let restaurantNavigationController = "RestaurantNavigationController"
+}
