@@ -9,5 +9,7 @@
 import Foundation
 
 protocol ILocationViewController: class {
-    func loadRestaurantsSuccessfully(vo restaurantsVO: [RestaurantVO])
+    func showRestaurants(vo restaurantsVO: [RestaurantVO])
+    func showRestaurantsWithTrasition(vo restaurantsVO: [RestaurantVO])
+    func updateNavigationController()
 }
