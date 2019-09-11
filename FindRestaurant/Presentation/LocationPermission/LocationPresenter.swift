@@ -28,6 +28,12 @@ class LocationPresenter {
     }
     
     func setupLocationService() {
+        locationService.didChangeStatus = { [weak self] success in
+            if success {
+                self?.locationService.getLocation()
+            }
+        }
+        
         if locationStatus == .authorizedAlways || locationStatus == .authorizedWhenInUse {
             self.viewController?.updateNavigationController()
             locationService.getLocation()
@@ -38,7 +44,7 @@ class LocationPresenter {
             case .success(let location):
                 self?.loadRestaurants(with: location.coordinate)
             case .failure(let error):
-                // TODO: should show error state
+                // FIXME: should show error state
                 assertionFailure("Error getting the user location \(error)")
             }
         }
@@ -67,6 +73,7 @@ class LocationPresenter {
 
                     
                 case .failure(let error):
+                    // FIXME: should show error state
                     print("Failure to get Restaurants List: \(error)")
                 }
         }

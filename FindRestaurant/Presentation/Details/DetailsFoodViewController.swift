@@ -15,21 +15,18 @@ class DetailsFoodViewController: UIViewController {
     
     @IBOutlet weak var detailsFoodView: DetailsFoodView?
     
-    var detailsVO: DetailsVO? {
-        didSet {
-            initViews()
-        }
-    }
+    var detailsVO: DetailsVO?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initViews()
         detailsFoodView?.collectionView?.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCell")
         detailsFoodView?.collectionView?.dataSource = self
         detailsFoodView?.collectionView?.delegate = self
     }
     
     func initViews() {
-        if let detailsVO = detailsVO{
+        if let detailsVO = detailsVO {
             detailsFoodView?.priceLabel?.text = detailsVO.price
             detailsFoodView?.hoursLabel?.text = detailsVO.isOpen
             detailsFoodView?.locationLabel?.text = detailsVO.phoneNumber

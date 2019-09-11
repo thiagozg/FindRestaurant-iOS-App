@@ -10,16 +10,19 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
+    private var presenter: RestaurantTablePresenter?
+    
     var restaurantsVO = [RestaurantVO]() {
         didSet {
             tableView.reloadData()
         }
     }
-    
-    weak var delegate: RestaurantListActions?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            presenter = RestaurantTablePresenter(ui: self, appDelegate.networkService)
+        }
     }
     
     // MARK: Table View Data Source
@@ -29,7 +32,9 @@ class RestaurantTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: RestaurantTableViewControllerConstants.restaurantCell,
+            for: indexPath)
 
         if cell is RestaurantCell {
             let restaurant = restaurantsVO[indexPath.row]
@@ -42,14 +47,28 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") else { return }
-        navigationController?.pushViewController(detailsViewController, animated: true)
         let restaurant = restaurantsVO[indexPath.row]
-        delegate?.didTapCell(detailsViewController, vo: restaurant)
+        self.didTapCell(vo: restaurant)
     }
 
 }
 
-protocol RestaurantListActions: class {
-    func didTapCell(_ viewController: UIViewController, vo restaurant: RestaurantVO)
+extension RestaurantTableViewController: IRestaurantTableViewController {    
+    func didTapCell(vo restaurant: RestaurantVO) {
+        self.presenter?.loadDetails(withId: restaurant.id)
+    }
+    
+    func showDetailsViewController(vo detailsVO: DetailsVO) {
+        if let detailsViewController = storyboard?.instantiateViewController(
+            withIdentifier: RestaurantTableViewControllerConstants.detailsViewController)
+            as? DetailsFoodViewController {
+            detailsViewController.detailsVO = detailsVO
+            navigationController?.pushViewController(detailsViewController, animated: true)
+        }
+    }
+}
+
+struct RestaurantTableViewControllerConstants {
+    static let detailsViewController = "DetailsViewController"
+    static let restaurantCell = "RestaurantCell"
 }
