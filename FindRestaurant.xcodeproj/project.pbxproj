@@ -33,7 +33,7 @@
 		D97064642328949600BDBEB8 /* RestaurantTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97064632328949600BDBEB8 /* RestaurantTablePresenter.swift */; };
 		D999C57F232443C2001237FE /* DetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999C57E232443C2001237FE /* DetailsResponse.swift */; };
 		D9A62CA3231FDA3800566771 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D9A62CA2231FDA3800566771 /* .gitignore */; };
-		D9F76F06232D37F000222D56 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F76F05232D37F000222D56 /* AppAssembler.swift */; };
+		D9F76F06232D37F000222D56 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F76F05232D37F000222D56 /* AppModule.swift */; };
 		D9F76F08232D380C00222D56 /* LocationViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F76F07232D380C00222D56 /* LocationViewModule.swift */; };
 		D9F76F0A232D384000222D56 /* RestaurantTableModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F76F09232D384000222D56 /* RestaurantTableModule.swift */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 		D97064632328949600BDBEB8 /* RestaurantTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTablePresenter.swift; sourceTree = "<group>"; };
 		D999C57E232443C2001237FE /* DetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsResponse.swift; sourceTree = "<group>"; };
 		D9A62CA2231FDA3800566771 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		D9F76F05232D37F000222D56 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		D9F76F05232D37F000222D56 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		D9F76F07232D380C00222D56 /* LocationViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModule.swift; sourceTree = "<group>"; };
 		D9F76F09232D384000222D56 /* RestaurantTableModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +117,7 @@
 		D90EF11B22EA6BF000B297D3 /* FindRestaurant */ = {
 			isa = PBXGroup;
 			children = (
-				D9F76F04232D37D900222D56 /* DI */,
+				D9F76F05232D37F000222D56 /* AppModule.swift */,
 				D968739D2316146600A65D0B /* Data */,
 				D968738823160B4600A65D0B /* Presentation */,
 				D90EF11C22EA6BF000B297D3 /* AppDelegate.swift */,
@@ -226,14 +226,6 @@
 				D914B2D4232202B1002297D9 /* RestaurantVO.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D9F76F04232D37D900222D56 /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				D9F76F05232D37F000222D56 /* AppAssembler.swift */,
-			);
-			path = DI;
 			sourceTree = "<group>";
 		};
 		F304FF6988872D7382FD337B /* Pods */ = {
@@ -394,7 +386,7 @@
 				D927CD022326007B008D2B88 /* YelpApi.swift in Sources */,
 				D968739C2316106200A65D0B /* LocationViewController.swift in Sources */,
 				D914B2D723220307002297D9 /* DetailsVO.swift in Sources */,
-				D9F76F06232D37F000222D56 /* AppAssembler.swift in Sources */,
+				D9F76F06232D37F000222D56 /* AppModule.swift in Sources */,
 				D97064642328949600BDBEB8 /* RestaurantTablePresenter.swift in Sources */,
 				D968739623160F4300A65D0B /* RestaurantCell.swift in Sources */,
 				D90EF11D22EA6BF000B297D3 /* AppDelegate.swift in Sources */,
