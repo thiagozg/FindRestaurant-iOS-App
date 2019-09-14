@@ -10,18 +10,15 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
-    private var presenter: RestaurantTablePresenter?
+    var presenter: RestaurantTablePresenter? {
+        didSet {
+            presenter?.attachUI(ui: self)
+        }
+    }
     
     var restaurantsVO = [RestaurantVO]() {
         didSet {
             tableView.reloadData()
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            presenter = RestaurantTablePresenter(ui: self, appDelegate.networkService)
         }
     }
     

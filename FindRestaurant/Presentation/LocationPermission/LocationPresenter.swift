@@ -19,11 +19,14 @@ class LocationPresenter {
         return CLAuthorizationStatus.notDetermined
     }()
     
-    init(ui viewController: ILocationViewController, _ networkService: NetworkService, _ locationService: LocationService) {
+    init(networkService: NetworkService, locationService: LocationService) {
         self.networkService = networkService
         self.locationService = locationService
-        self.viewController = viewController
         self.locationStatus = locationService.status
+    }
+    
+    func attachUI(ui viewController: ILocationViewController) {
+        self.viewController = viewController
         setupLocationService()
     }
     
@@ -80,7 +83,7 @@ class LocationPresenter {
     }
     
     private func loadRestaurantsSuccessfully(_ restaurantsVO: [RestaurantVO]) {
-        if !hasLocationAuthorized(locationStatus) {
+        if hasLocationAuthorized(locationStatus) {
             viewController?.showRestaurants(vo: restaurantsVO)
         } else {
             viewController?.showRestaurantsWithTrasition(vo: restaurantsVO)

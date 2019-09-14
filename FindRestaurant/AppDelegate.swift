@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow()
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let networkService = NetworkService()
-    let locationService = LocationService()
+    let appModule = AppModule()
     var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -27,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locationViewController = storyboard.instantiateViewController(
             withIdentifier: NavigationConstants.locationViewController) as? LocationViewController
         window.rootViewController = locationViewController
+        locationViewController?.appDelegate = self
+        locationViewController?.appModule = appModule
     }
     
     func updateNavigationController(withIdentifier navigationIdentifier: String, _ changeRootViewController: Bool = true) {
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if navigationController != nil {
             window.rootViewController?.present(navigationController!, animated: true) {
                 let restaurantTableViewController = (self.navigationController!.topViewController as? RestaurantTableViewController)
+                restaurantTableViewController?.presenter = self.appModule.provides()
                 closure(restaurantTableViewController)
             }
         }

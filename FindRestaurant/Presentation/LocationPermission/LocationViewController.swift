@@ -12,15 +12,13 @@ import CoreLocation
 class LocationViewController: UIViewController {
     
     @IBOutlet weak var locationView: LocationView?
-    private var appDelegate: AppDelegate?
-    private var presenter: LocationPresenter?
+    var appDelegate: AppDelegate?
+    var appModule: AppModule?
+    private lazy var presenter: LocationPresenter? = appModule?.provides()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-        if appDelegate != nil {
-            presenter = LocationPresenter(ui: self, appDelegate!.networkService, appDelegate!.locationService)
-        }
+        presenter?.attachUI(ui: self)
         handleLocationStatus()
     }
     
@@ -32,15 +30,16 @@ class LocationViewController: UIViewController {
 }
 
 extension LocationViewController: ILocationViewController {
-    func showRestaurants(vo restaurantsVO: [RestaurantVO]) {
+    func showRestaurantsWithTrasition(vo restaurantsVO: [RestaurantVO]) {
         appDelegate?.changeToRestaurantNavigationController { restaurantTableViewController in
             restaurantTableViewController?.restaurantsVO = restaurantsVO
         }
     }
     
-    func showRestaurantsWithTrasition(vo restaurantsVO: [RestaurantVO]) {
+    func showRestaurants(vo restaurantsVO: [RestaurantVO]) {
         if let restaurantTableViewController = appDelegate?.navigationController?.topViewController
             as? RestaurantTableViewController {
+            restaurantTableViewController.presenter = appModule?.provides()
             restaurantTableViewController.restaurantsVO = restaurantsVO
         }
     }

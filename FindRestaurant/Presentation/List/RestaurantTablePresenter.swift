@@ -14,8 +14,11 @@ class RestaurantTablePresenter {
     private let networkService: NetworkService
     private weak var viewController: IRestaurantTableViewController?
     
-    init(ui viewController: IRestaurantTableViewController, _ networkService: NetworkService) {
+    init(networkService: NetworkService) {
         self.networkService = networkService
+    }
+    
+    func attachUI(ui viewController: IRestaurantTableViewController) {
         self.viewController = viewController
     }
     
